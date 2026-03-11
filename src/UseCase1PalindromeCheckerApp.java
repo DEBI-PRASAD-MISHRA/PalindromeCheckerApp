@@ -64,6 +64,45 @@ public class UseCase1PalindromeCheckerApp {
         System.out.println("-------------------------------------------");
     }
 
+    // UC4: Palindrome check using character array and two-pointer technique
+    // Demonstrates: char[], array indexing, two-pointer, efficient comparison
+    public static void checkPalindromeUsingCharArray(String input) {
+        // Convert the string into a character array
+        char[] chars = input.toCharArray();
+
+        // Initialize pointer at the beginning
+        int start = 0;
+
+        // Initialize pointer at the end
+        int end = chars.length - 1;
+
+        // Assume palindrome initially
+        boolean isPalindrome = true;
+
+        // Continue comparison until pointers cross
+        while (start < end) {
+            if (chars[start] != chars[end]) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
+        }
+
+        System.out.println("-------------------------------------------");
+        System.out.println("   UC4: Palindrome Check (Char Array)");
+        System.out.println("-------------------------------------------");
+        System.out.println("   Input        : " + input);
+        System.out.println("   Char Array   : " + java.util.Arrays.toString(chars));
+
+        if (isPalindrome) {
+            System.out.println("   Result       : \"" + input + "\" is a Palindrome");
+        } else {
+            System.out.println("   Result       : \"" + input + "\" is NOT a Palindrome");
+        }
+        System.out.println("-------------------------------------------");
+    }
+
     public static void main(String[] args) {
         // UC1: Welcome Message
         displayWelcomeMessage();
@@ -74,5 +113,9 @@ public class UseCase1PalindromeCheckerApp {
         // UC3: Palindrome Check Using String Reverse
         checkPalindromeUsingReverse("racecar");
         checkPalindromeUsingReverse("hello");
+
+        // UC4: Palindrome Check Using Char Array (Two-Pointer)
+        checkPalindromeUsingCharArray("radar");
+        checkPalindromeUsingCharArray("java");
     }
 }
