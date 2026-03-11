@@ -38,11 +38,41 @@ public class UseCase1PalindromeCheckerApp {
         System.out.println("-------------------------------------------");
     }
 
+    // UC3: Palindrome check using string reverse (loop + concatenation)
+    // Demonstrates: for loop, String immutability, + concatenation, equals()
+    public static void checkPalindromeUsingReverse(String word) {
+        String reversed = "";
+
+        // Reverse the string using a for loop
+        // Note: String is immutable — each concatenation creates a new String object
+        for (int i = word.length() - 1; i >= 0; i--) {
+            reversed = reversed + word.charAt(i);
+        }
+
+        System.out.println("-------------------------------------------");
+        System.out.println("   UC3: Palindrome Check (String Reverse)");
+        System.out.println("-------------------------------------------");
+        System.out.println("   Original : " + word);
+        System.out.println("   Reversed : " + reversed);
+
+        // Using equals() to compare content, not == (which compares references)
+        if (word.equals(reversed)) {
+            System.out.println("   Result   : \"" + word + "\" is a Palindrome");
+        } else {
+            System.out.println("   Result   : \"" + word + "\" is NOT a Palindrome");
+        }
+        System.out.println("-------------------------------------------");
+    }
+
     public static void main(String[] args) {
         // UC1: Welcome Message
         displayWelcomeMessage();
 
         // UC2: Hardcoded Palindrome Check
         checkHardcodedPalindrome();
+
+        // UC3: Palindrome Check Using String Reverse
+        checkPalindromeUsingReverse("racecar");
+        checkPalindromeUsingReverse("hello");
     }
 }
